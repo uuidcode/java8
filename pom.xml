@@ -4,156 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kakao.prmc</groupId>
+    <groupId>com.github.uuidcode</groupId>
     <artifactId>java8</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
-        <sl4j.version>1.7.13</sl4j.version>
-        <querydsl.version>4.0.7</querydsl.version>
-        <spring.version>4.2.3.RELEASE</spring.version>
-        <generate.code.version>2.2.6</generate.code.version>
-        <core.version>2.1.8</core.version>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>daum-enterdev</id>
-            <name>Daum Entertainment Service Development Repository</name>
-            <url>http://maven.daumcorp.com/content/repositories/daum-enterdev</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-        </repository>
-        <repository>
-            <id>daum-enterdev-snapshots</id>
-            <name>Daum Entertainment Service Development Repository</name>
-            <url>http://maven.daumcorp.com/content/repositories/daum-enterdev-snapshots</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring.boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jackson-databind</artifactId>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.kakao.prmc.core</groupId>
-            <artifactId>core</artifactId>
-            <version>${core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-            <version>1.7.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.javaparser</groupId>
-            <artifactId>javaparser-core</artifactId>
-            <version>2.1.0</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
-        <filters>
-            <filter>${basedir}/src/main/filters/${env}.properties</filter>
-        </filters>
-        <resources>
-            <resource>
-                <directory>${basedir}/src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-            <resource>
-                <directory>${basedir}/src/main/java</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.properties</include>
-                </includes>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-        </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.3.0.RELEASE</version>
-                <configuration>
-                    <addResources>false</addResources>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.kakao.prmc</groupId>
-                <artifactId>generate-code</artifactId>
-                <version>${generate.code.version}</version>
-                <configuration>
-                    <baseDir>${basedir}</baseDir>
-                    <packageName>com.kakao.prmc.querydsl</packageName>
-                    <targetSrvice>querydsl</targetSrvice>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    <profiles>
-        <profile>
-            <id>test</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <env>test</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>production</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <env>production</env>
-            </properties>
-        </profile>
-    </profiles>
+    <packaging>jar</packaging>
+
 </project>
