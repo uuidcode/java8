@@ -9,25 +9,23 @@ import org.junit.Test;
 import com.github.uuidcode.java8.entity.Developer;
 
 public class StreamTest {
+
     @Test
     public void flatMap() {
         List<Developer> team = new ArrayList<Developer>();
-        Developer polyglot =
+
+        team.add(
             new Developer()
                 .setName("esoteric")
                 .add("clojure")
                 .add("scala")
                 .add("groovy")
-                .add("go");
+                .add("go"));
 
-        team.add(polyglot);
-
-        Developer busy =
+        team.add(
             new Developer()
                 .add("java")
-                .add("javascript");
-
-        team.add(busy);
+                .add("javascript"));
 
         System.out.println(
             team
