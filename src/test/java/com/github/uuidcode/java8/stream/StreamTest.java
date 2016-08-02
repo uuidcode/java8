@@ -3,6 +3,7 @@ package com.github.uuidcode.java8.stream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.junit.Test;
 
@@ -16,7 +17,7 @@ public class StreamTest {
 
         team.add(
             new Developer()
-                .setName("esoteric")
+                .setName("dana")
                 .add("clojure")
                 .add("scala")
                 .add("groovy")
@@ -24,6 +25,7 @@ public class StreamTest {
 
         team.add(
             new Developer()
+                .setName("ted")
                 .add("java")
                 .add("javascript"));
 
@@ -34,5 +36,7 @@ public class StreamTest {
                 .flatMap(l -> l.stream())
                 .collect(Collectors.toList()));
 
+
+        System.out.println(IntStream.of(1, 2).summaryStatistics());
     }
 }
